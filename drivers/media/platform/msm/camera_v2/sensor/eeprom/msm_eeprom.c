@@ -1669,8 +1669,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 		&eb_info->eeprom_name);
 	CDBG("%s qcom,eeprom-name %s, rc %d\n", __func__,
 		eb_info->eeprom_name, rc);
-	printk("%s qcom,eeprom-name %s, rc %d\n", __func__,
-			eb_info->eeprom_name, rc);
+
 	if (rc < 0) {
 		pr_err("%s failed %d\n", __func__, __LINE__);
 		e_ctrl->userspace_probe = 1;
@@ -1731,10 +1730,10 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			CDBG("match id for s5k3l8_ofilm\n");
 			if (e_ctrl->cal_data.mapdata[0] == 0x55)  {
 				module_id = e_ctrl->cal_data.mapdata[1] & 0x1f;
-			}  else{
+			} else {
 				module_id = -1;
 			}
-			printk("match id for s5k3l8_ofilm module_id=%d\n", module_id);
+
 			if (module_id == 7) {
 				CDBG("match id for s5k3l8_ofilm success\n");
 				main_module_id = module_id;
@@ -1749,7 +1748,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			}  else{
 				module_id = -1;
 			}
-			printk("match id for s5k3l8_ofilm_riva module_id=%d\n", module_id);
+
 			if (module_id == 7) {
 				CDBG("match id for s5k3l8_ofilm_riva success\n");
 				main_module_id = module_id;
@@ -1764,7 +1763,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			}  else{
 				module_id = -1;
 			}
-			printk("match id for s5k3l8_sunny module_id=%d\n", module_id);
+
 			if (module_id == 1) {
 				CDBG("match id for s5k3l8_sunny success\n");
 				main_module_id = module_id;
@@ -1779,7 +1778,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			}  else{
 				module_id = -1;
 			}
-			printk("match id for ov13855_qtech module_id=%d\n", module_id);
+
 			if (module_id == 11) {
 				CDBG("match id for ov13855_qtech success\n");
 				main_module_id = module_id;
@@ -1794,7 +1793,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			}  else{
 				module_id = -1;
 			}
-			printk("match id for ov13855_sunny module_id=%d\n", module_id);
+
 			if (module_id == 1) {
 				CDBG("match id for ov13855_sunny success\n");
 				main_module_id = module_id;
@@ -1809,7 +1808,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			}  else{
 				module_id = -1;
 			}
-			printk("match id for ov13850 module_id=%d\n", module_id);
+
 			if (module_id == 1) {
 				CDBG("match id for ov13850 success\n");
 				main_module_id = module_id;
@@ -1824,7 +1823,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			}  else{
 				module_id = -1;
 			}
-			printk("match id for s5k3l2 module_id=%d\n", module_id);
+
 			if (module_id == 7) {
 				CDBG("match id for s5k3l2 success\n");
 				main_module_id = module_id;
@@ -1843,7 +1842,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			} else {
 				module_id = -1;
 			}
-			printk("match id for ov5675_ofilm module_id=%d\n", module_id);
+
 			if (module_id == 7) {
 				CDBG("match id for ov5670_ofilm success\n");
 				sub_module_id = module_id;
@@ -1862,7 +1861,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			} else {
 				module_id = -1;
 			}
-			printk("match id for s5k5e8_sunny module_id=%d\n", module_id);
+
 			if (module_id == 1) {
 				CDBG("match id for s5k5e8_sunny success\n");
 				sub_module_id = module_id;
@@ -1881,7 +1880,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			} else {
 				module_id = -1;
 			}
-			printk("match id for s5k5e8_ofilm_riva module_id=%d\n", module_id);
+
 			if (module_id == 7) {
 				CDBG("match id for s5k5e8_ofilm_riva success\n");
 				sub_module_id = module_id;
@@ -1900,7 +1899,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			} else {
 				module_id = -1;
 			}
-			printk("match id for ov5675 module_id=%d\n", module_id);
+
 			if (module_id == 1) {
 				CDBG("match id for ov5675 success\n");
 				sub_module_id = module_id;
@@ -1919,7 +1918,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			} else {
 				module_id = -1;
 			}
-			printk("match id for s5k5e8_qtech_riva module_id=%d\n", module_id);
+
 			if (module_id == 11) {
 				CDBG("match id for s5k5e8_qtech_riva success\n");
 				sub_module_id = module_id;
@@ -1938,7 +1937,7 @@ static int msm_eeprom_platform_probe(struct platform_device *pdev)
 			} else {
 				module_id = -1;
 			}
-			printk("match id for s5k5e8 module_id=%d\n", module_id);
+
 			if (module_id == 7) {
 				CDBG("match id for s5k5e8 success\n");
 				sub_module_id = module_id;
