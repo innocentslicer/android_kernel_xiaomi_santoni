@@ -435,12 +435,12 @@ enum hvdcp_voters {
 	HVDCP_PULSING_VOTER,
 	NUM_HVDCP_VOTERS,
 };
-static int smbchg_debug_mask = PR_INTERRUPT | PR_STATUS | PR_MISC;
+static int smbchg_debug_mask = 0;
 module_param_named(
 	debug_mask, smbchg_debug_mask, int, S_IRUSR | S_IWUSR
 );
 
-static int smbchg_parallel_en = 1;
+static int smbchg_parallel_en = 0;
 module_param_named(
 	parallel_en, smbchg_parallel_en, int, S_IRUSR | S_IWUSR
 );
