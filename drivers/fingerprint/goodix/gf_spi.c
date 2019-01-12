@@ -454,8 +454,7 @@ static int driver_init_partial(struct gf_dev *gf_dev)
 	}
 	if (!ret) {
 		enable_irq_wake(gf_dev->irq);
-		gf_enable_irq(gf_dev);
-		gf_disable_irq(gf_dev);
+		gf_dev->irq_enabled = 1;
 	}
 
 	gf_hw_reset(gf_dev, 360);
@@ -489,6 +488,8 @@ static int gf_open(struct inode *inode, struct file *filp)
 		}
 	}
 
+	gf_dev->irq_enabled = 0;
+
 	if (status == 0) {
 		if (status == 0) {
 			gf_dev->users++;
@@ -497,9 +498,8 @@ static int gf_open(struct inode *inode, struct file *filp)
 			gf_dbg("Succeed to open device. irq = %d\n",
 					gf_dev->irq);
 
-
-
-
+			if (gf_dev->irq)
+				gf_dev->irq_enabled = 1;
 
 			gf_dev->device_available = 1;
 		}
@@ -678,7 +678,6 @@ static int gf_probe(struct platform_device *pdev)
 	gf_dev->pwr_gpio 	= 	-EINVAL;
 	gf_dev->device_available =  0;
 	gf_dev->fb_black  =  0;
-	gf_dev->irq_enabled = 0;
 	gf_dev->fingerprint_pinctrl = NULL;
 
 
